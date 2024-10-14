@@ -1237,7 +1237,7 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel int? output;
       // ? Instruksi 3: Konversi input menjadi integer dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
-
+      
       // --- End of Answer ---
       return output is int && output == 42;
     },

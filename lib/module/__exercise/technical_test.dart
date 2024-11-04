@@ -1289,7 +1289,6 @@ class TechnicalTest {
       double? output;
       output = double.parse(input);
 
-      
       // --- End of Answer ---
       return output is double && output == 3.14;
     },
@@ -1342,7 +1341,6 @@ class TechnicalTest {
       bool? output;
       output = bool.parse(input);
 
-
       // --- End of Answer ---
       return output is bool && output == false;
     },
@@ -1367,7 +1365,7 @@ class TechnicalTest {
       String input = "Hello, World!";
       String? output;
       output = input;
-      
+
       // --- End of Answer ---
       return output is String && output == "Hello, World!";
     },
@@ -1416,6 +1414,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Konversi input menjadi boolean dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "true";
+      bool? output;
+      output = input == "true";
 
       // --- End of Answer ---
       return output is bool && output == true;
@@ -1426,6 +1427,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Konversi input menjadi boolean dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "false";
+      bool? output;
+      output = input == "true";
 
       // --- End of Answer ---
       return output is bool && output == false;
@@ -1436,6 +1440,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Konversi input menjadi boolean dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "0";
+      bool? output;
+      output = input == "true";
 
       // --- End of Answer ---
       return output is bool && output == false;
@@ -1446,6 +1453,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      bool input = true;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "true";
@@ -1456,6 +1466,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      bool input = false;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "false";
@@ -1466,6 +1479,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      int input = 42;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "42";
@@ -1476,6 +1492,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      double input = 3.14;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "3.14";
@@ -1486,6 +1505,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel double? output;
       // ? Instruksi 3: Konversi input menjadi double dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "9.99";
+      double? output;
+      output = double.parse(input);
 
       // --- End of Answer ---
       return output is double && output == 9.99;
@@ -1496,6 +1518,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel double? output;
       // ? Instruksi 3: Konversi input menjadi double dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "3.14";
+      double? output;
+      output = double.parse(input);
 
       // --- End of Answer ---
       return output is double && output == 3.14;
@@ -1506,6 +1531,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel double? output;
       // ? Instruksi 3: Konversi input menjadi double dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "5.5";
+      double? output;
+      output = double.parse(input);
 
       // --- End of Answer ---
       return output is double && output == 5.5;
@@ -1516,7 +1544,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Konversi input menjadi boolean dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
-
+      String input = "true";
+      bool? output;
+      output = bool.parse(input);
       // --- End of Answer ---
       return output is bool && output == true;
     },
@@ -1526,7 +1556,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Konversi input menjadi boolean dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
-
+      String input = "false";
+      bool? output;
+      output = bool.parse(input);
       // --- End of Answer ---
       return output is bool && output == false;
     },
@@ -1536,6 +1568,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Konversi input menjadi boolean dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "0";
+      bool? output;
+      output = bool.fromEnvironment(input);
 
       // --- End of Answer ---
       return output is bool && output == false;
@@ -1546,6 +1581,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      bool input = true;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "true";
@@ -1556,6 +1594,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      bool input = false;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "false";
@@ -1566,6 +1607,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      int input = 42;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "42";
@@ -1576,6 +1620,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel String? output;
       // ? Instruksi 3: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      double input = 3.14;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
       return output is String && output == "3.14";
@@ -1586,6 +1633,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel double? output;
       // ? Instruksi 3: Konversi input menjadi double dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "9.99";
+      double? output;
+      output = double.parse(input);
 
       // --- End of Answer ---
       return output is double && output == 9.99;
@@ -1596,6 +1646,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel double? output;
       // ? Instruksi 3: Konversi input menjadi double dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "3.14";
+      double? output;
+      output = double.parse(input);
 
       // --- End of Answer ---
       return output is double && output == 3.14;
@@ -1606,6 +1659,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel double? output;
       // ? Instruksi 3: Konversi input menjadi double dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "5.5";
+      double? output;
+      output = double.parse(input);
 
       // --- End of Answer ---
       return output is double && output == 5.5;
@@ -1616,6 +1672,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel DateTime? output;
       // ? Instruksi 3: Konversi input menjadi DateTime dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "2023-08-09";
+      DateTime? output;
+      output = DateTime.parse(input);
 
       // --- End of Answer ---
       return output is DateTime &&
@@ -1629,6 +1688,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel DateTime? output;
       // ? Instruksi 3: Konversi input menjadi DateTime dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "1999-12-31";
+      DateTime? output;
+      output = DateTime.parse(input);
 
       // --- End of Answer ---
       return output is DateTime &&
@@ -1642,6 +1704,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel DateTime? output;
       // ? Instruksi 3: Konversi input menjadi DateTime dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "2022-01-15";
+      DateTime? output;
+      output = DateTime.parse(input);
 
       // --- End of Answer ---
       return output is DateTime &&
@@ -1655,6 +1720,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel DateTime? output;
       // ? Instruksi 3: Konversi input menjadi DateTime dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "1987-05-25";
+      DateTime? output;
+      output = DateTime.parse(input);
 
       // --- End of Answer ---
       return output is DateTime &&
@@ -1668,6 +1736,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel DateTime? output;
       // ? Instruksi 3: Konversi input menjadi DateTime dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "2025-10-01";
+      DateTime? output;
+      output = DateTime.parse(input);
 
       // --- End of Answer ---
       return output is DateTime &&
@@ -1681,6 +1752,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<int>? output;
       // ? Instruksi 3: Konversi input menjadi List<int> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<int> input = [1, 2, 3, 4, 5];
+      List<int>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<int> &&
@@ -1694,6 +1768,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<String>? output;
       // ? Instruksi 3: Konversi input menjadi List<String> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<String> input = ["apple", "banana", "cherry"];
+      List<String>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<String> &&
@@ -1707,6 +1784,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<double>? output;
       // ? Instruksi 3: Konversi input menjadi List<double> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<double> input = [3.14, 2.71, 1.618];
+      List<double>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<double> &&
@@ -1720,6 +1800,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel Map<String, int>? output;
       // ? Instruksi 3: Konversi input menjadi Map<String, int> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, int> input = {"apple": 2, "banana": 3, "cherry": 5};
+      Map<String, int>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is Map<String, int> &&
@@ -1733,6 +1816,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel Map<String, double>? output;
       // ? Instruksi 3: Konversi input menjadi Map<String, double> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, double> input = {"pi": 3.14, "e": 2.71, "phi": 1.618};
+      Map<String, double>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is Map<String, double> &&
@@ -1746,6 +1832,13 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel Map<String, dynamic>? output;
       // ? Instruksi 3: Konversi input menjadi Map<String, dynamic> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {
+        "name": "John",
+        "age": 30,
+        "isStudent": true
+      };
+      Map<String, dynamic>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is Map<String, dynamic> &&
@@ -1759,6 +1852,13 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel Map<String, dynamic>? output;
       // ? Instruksi 3: Konversi input menjadi Map<String, dynamic> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {
+        "title": "Book",
+        "price": 20.99,
+        "isAvailable": false
+      };
+      Map<String, dynamic>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is Map<String, dynamic> &&
@@ -1772,6 +1872,13 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, int>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, int>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, int>> input = [
+        {"score": 90},
+        {"score": 85},
+        {"score": 95}
+      ];
+      List<Map<String, int>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, int>> &&
@@ -1786,6 +1893,14 @@ class TechnicalTest {
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
 
+      List<Map<String, dynamic>> input = [
+        {"name": "Alice"},
+        {"name": "Bob"},
+        {"name": "Charlie"}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
+
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
           output.length == 3 &&
@@ -1798,6 +1913,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"city": "New York", "population": 8378394},
+        {"city": "Los Angeles", "population": 3990456}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1811,6 +1932,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"name": "Alice", "age": 25},
+        {"name": "Bob", "age": 30}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1824,6 +1951,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"country": "USA", "capital": "Washington, D.C."},
+        {"country": "Canada", "capital": "Ottawa"}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1837,6 +1970,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"code": "A1", "value": 10},
+        {"code": "B2", "value": 20}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1850,6 +1989,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"item": "Apple", "price": 1.99},
+        {"item": "Banana", "price": 0.99}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1863,6 +2008,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"name": "Alice", "age": 25},
+        {"name": "Bob", "age": 30}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1876,6 +2027,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"city": "New York", "population": 8378394},
+        {"city": "Los Angeles", "population": 3990456}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1889,6 +2046,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"country": "USA", "capital": "Washington, D.C."},
+        {"country": "Canada", "capital": "Ottawa"}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1902,6 +2065,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"code": "A1", "value": 10},
+        {"code": "B2", "value": 20}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1915,6 +2084,12 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<Map<String, dynamic>>? output;
       // ? Instruksi 3: Konversi input menjadi List<Map<String, dynamic>> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, dynamic>> input = [
+        {"item": "Apple", "price": 1.99},
+        {"item": "Banana", "price": 0.99}
+      ];
+      List<Map<String, dynamic>>? output;
+      output = input;
 
       // --- End of Answer ---
       return output is List<Map<String, dynamic>> &&
@@ -1928,6 +2103,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Gunakan operator conditional Jika input["age"] == 25, atur nilai output menjadi true
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {"name": "Alice", "age": 25};
+      bool? output;
+      output = input["age"] == 25;
 
       // --- End of Answer ---
       return output == true;
@@ -1938,6 +2116,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Gunakan operator conditional Jika input["isDiscounted"] == 1, atur nilai output menjadi true
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {"amount": 20.5, "isDiscounted": 1};
+      bool? output;
+      output = input["isDiscounted"] == 1;
 
       // --- End of Answer ---
       return output == true;
@@ -1948,6 +2129,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Gunakan operator conditional Jika input["isActive"] == "true", atur nilai output menjadi true
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {"isActive": "true"};
+      bool? output;
+      output = input["isActive"] == "true";
 
       // --- End of Answer ---
       return output == true;
@@ -1958,6 +2142,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Gunakan operator conditional Jika input["hasPermission"] == "false", atur nilai output menjadi true
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {"hasPermission": "false"};
+      bool? output;
+      output = input["hasPermission"] == "false";
 
       // --- End of Answer ---
       return output == true;
@@ -1968,6 +2155,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Gunakan operator conditional Jika input["isAvailable"] == "1", atur nilai output menjadi true
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {"isAvailable": "1"};
+      bool? output;
+      output = input["isAvailable"] == "1";
 
       // --- End of Answer ---
       return output == true;
@@ -1978,6 +2168,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel bool? output;
       // ? Instruksi 3: Gunakan operator conditional Jika input["isEnabled"] == "0", atur nilai output menjadi true
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {"isEnabled": "0"};
+      bool? output;
+      output = input["isEnabled"] == "0";
 
       // --- End of Answer ---
       return output == true;
@@ -6079,11 +6272,12 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari index dari product dengan id 2 dan price 1200 dalam list products
       // >>> Tulis kode for loop di sini
       for (var i = 0; i < products.length; i++) {
-        if (products[i]['id'] == 2 && products[i]['price'] == 120
-        && products[i]['price'] == 1200) {
+        if (products[i]['id'] == 2 &&
+            products[i]['price'] == 120 &&
+            products[i]['price'] == 1200) {
           index = i;
-          }
-          }
+        }
+      }
       // --- End of Answer ---
 
       return index == 1;

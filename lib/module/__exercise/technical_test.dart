@@ -2181,6 +2181,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<String>? output;
       // ? Instruksi 3: Konversi nilai dari input menjadi List<String> dengan memisahkan string berdasarkan koma (",") dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "apple,banana,orange";
+      List<String>? output;
+      output = input.split(",");
 
       // --- End of Answer ---
       return output is List<String> &&
@@ -2195,6 +2198,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<int>? output;
       // ? Instruksi 3: Konversi nilai dari input menjadi List<int> dengan memisahkan string berdasarkan koma (",") dan mengkonversi setiap nilai menjadi integer, kemudian tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "42,38,56,29";
+      List<int>? output;
+      output = input.split(",").map((e) => int.parse(e)).toList();
 
       // --- End of Answer ---
       return output is List<int> &&
@@ -2210,6 +2216,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<bool>? output;
       // ? Instruksi 3: Konversi nilai dari input menjadi List<bool> dengan memisahkan string berdasarkan koma (",") dan mengkonversi setiap nilai menjadi boolean, kemudian tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "true,false,true,false";
+      List<bool>? output;
+      output = input.split(",").map((e) => e == "true").toList();
 
       // --- End of Answer ---
       return output is List<bool> &&
@@ -2223,6 +2232,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<double>? output;
       // ? Instruksi 3: Konversi nilai dari input menjadi List<double> dengan memisahkan string berdasarkan koma (",") dan mengkonversi setiap nilai menjadi double, kemudian tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "3.14,2.718,1.618";
+      List<double>? output;
+      output = input.split(",").map((e) => double.parse(e)).toList();
 
       // --- End of Answer ---
       return output is List<double> &&
@@ -2237,6 +2249,9 @@ class TechnicalTest {
       // ? Instruksi 2: Buatlah variabel List<DateTime>? output;
       // ? Instruksi 3: Konversi nilai dari input menjadi List<DateTime> dengan memisahkan string berdasarkan koma (",") dan mengkonversi setiap nilai menjadi DateTime, kemudian tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "2022-01-01,2023-05-15,2024-10-30";
+      List<DateTime>? output =
+          input.split(",").map((e) => DateTime.parse(e)).toList();
 
       // --- End of Answer ---
       return output is List<DateTime> && output.length == 3;
@@ -2247,6 +2262,8 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel List<int>? output;
       // ? Instruksi: Konversi input menjadi List<int> dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "1,2,3,4,5";
+      List<int>? output = input.split(",").map((e) => int.parse(e)).toList();
 
       // --- End of Answer ---
 
@@ -2258,6 +2275,8 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel double? output;
       // ? Instruksi: Konversi input menjadi double dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "3.14";
+      double? output = double.parse(input);
 
       // --- End of Answer ---
 
@@ -2269,6 +2288,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi bool dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "true";
+      bool? output;
+      output = bool.parse(input);
 
       // --- End of Answer ---
 
@@ -2280,6 +2302,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      int input = 42;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
 
@@ -2291,6 +2316,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel String? output;
       // ? Instruksi: Konversi input menjadi String dan tampung di dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      double input = 3.14;
+      String? output;
+      output = input.toString();
 
       // --- End of Answer ---
 
@@ -6562,6 +6590,13 @@ class TechnicalTest {
       // dan bekerja di departemen "IT" atau "Finance"
       // Masukkan karyawan yang memenuhi kriteria tersebut ke dalam list highPaidEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee['salary'] > 5000 && employee['age'] > 25 &&
+        employee['yearsOfExperience'] > 3 &&
+        (employee['department'] == 'IT' || employee['department'] == 'Finance')) {
+          highPaidEmployees.add(employee);
+          }
+          }
 
       // --- End of Answer ---
 
@@ -6627,6 +6662,12 @@ class TechnicalTest {
       // dan berusia di bawah 25 tahun (age < 25)
       // Masukkan karyawan yang memenuhi kriteria tersebut ke dalam list partTimeEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee['isFullTime'] == false && employee['hasHealthInsurance'] == false  
+        && employee['age'] < 25) {
+          partTimeEmployees.add(employee);  
+          } 
+          }
 
       // --- End of Answer ---
 

@@ -2330,6 +2330,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi String dan cek apakah string "3" terdapat dalam output
       // >>> Tulis jawabanmu di bawah ini
+      List<int> input = [1, 2, 3, 4, 5];
+      bool? output;
+      output = input.toString().contains('3');
 
       // --- End of Answer ---
 
@@ -2341,6 +2344,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi String dan cek apakah string "grape" terdapat dalam output
       // >>> Tulis jawabanmu di bawah ini
+      List<String> input = ["apple", "banana", "cherry"];
+      bool? output;
+      output = input.toString().contains('3');
 
       // --- End of Answer ---
 
@@ -2352,6 +2358,8 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi List<String> dengan mengubah setiap elemen menjadi string
       // >>> Tulis jawabanmu di bawah ini
+      List<int> input = [10, 20, 30, 40, 50];
+      List<String>? output = input.map((e) => e.toString()).toList();
 
       // --- End of Answer ---
 
@@ -2363,7 +2371,11 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel Map<String, int> input dengan pasangan nilai "apple" -> 3 dan "banana" -> 2
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi List<String> dengan mengambil semua kunci (keys) dari map
-      // >>> Tulis jawabanmu di bawah ini
+      // >>> Tulis jawabanmu di bawah ini\
+      Map<String, int> input = {"apple": 3, "banana": 2};
+      List<String>? output;
+      output = input.keys.toList();
+
 
       // --- End of Answer ---
 
@@ -2376,6 +2388,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi List<int> dengan mengambil semua nilai (values) dari map
       // >>> Tulis jawabanmu di bawah ini
+      Map<int, String> input = {1: "one", 2: "two"};
+      List<String>? output;
+      output = input.values.toList();
 
       // --- End of Answer ---
 
@@ -2388,6 +2403,11 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi List<int> dengan mengambil semua nilai dari map-map di dalam list
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, int>> input = [
+        {"apple": 3},
+        {"banana": 2}
+      ];
+      List<int> output = input.map((e) => e.values.first).toList();
 
       // --- End of Answer ---
 
@@ -2399,6 +2419,8 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi List<dynamic> dengan mengambil semua nilai dari map
       // >>> Tulis jawabanmu di bawah ini
+      Map<String, dynamic> input = {"age": 25, "name": "John"};
+      List<dynamic> output = input.values.toList();
 
       // --- End of Answer ---
 
@@ -2410,6 +2432,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi Map<String, int> dengan mengubah setiap elemen menjadi pasangan kunci "number" dan nilai elemen
       // >>> Tulis jawabanmu di bawah ini
+      List<int> input = [1, 2, 3, 4, 5];
+      Map<String, int> output;
+      output = {for (var number in input) 'number': number};
 
       // --- End of Answer ---
 
@@ -2421,6 +2446,11 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi Map<String, String> dengan mengubah setiap elemen menjadi pasangan kunci dan nilai yang sama
       // >>> Tulis jawabanmu di bawah ini
+      List<String> input = ["apple", "banana", "cherry"];
+      Map<String, String> output;
+      output = {
+        for (var item in input) item: item,
+      };
 
       // --- End of Answer ---
 
@@ -2432,7 +2462,11 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel bool? output;
       // ? Instruksi: Konversi input menjadi Map<String, int> dengan mengambil pasangan kunci "apple" dan nilai dari map pertama dalam list
       // >>> Tulis jawabanmu di bawah ini
-
+      List<Map<String, int>> input = [
+        {"apple": 3},
+        {"banana": 2}
+      ];
+      Map<String, int> output = input.first;
       // --- End of Answer ---
 
       return output is Map<String, int> && output.containsKey("apple");
@@ -2444,6 +2478,10 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel String? output;
       // ? Instruksi: Gabungkan input1 dan input2 menjadi satu string dan simpan dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input1 = "Hello";
+      String input2 = "world";
+      String? output;
+      output = '$input1 $input2';
 
       // --- End of Answer ---
 
@@ -2455,6 +2493,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel String? output;
       // ? Instruksi: Ganti kata "John" menjadi "Alice" dalam input dan simpan dalam variabel output
       // >>> Tulis jawabanmu di bawah ini
+      String input = "Hello, my name is John";
+      String? output; 
+      output = input.replaceAll("John", "Alice");
 
       // --- End of Answer ---
 
@@ -2466,6 +2507,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel List<String>? output;
       // ? Instruksi: Konversi input menjadi List<String> dengan memisahkan string berdasarkan koma (",")
       // >>> Tulis jawabanmu di bawah ini
+      String input = "apple,banana,cherry";
+      List<String>? output;
+      output = input.split(",");
 
       // --- End of Answer ---
 
@@ -2479,7 +2523,10 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel List<int>? output;
       // ? Instruksi: Konversi input menjadi List<int> dengan mengubah setiap elemen menjadi integer
       // >>> Tulis jawabanmu di bawah ini
-
+      // >>> Tulis jawabanmu di bawah ini
+      String input = "10,20,30,40,50";
+      List<int>? output = input.split(",").map(int.parse).toList();
+      return output.length == 5 && output.every((element) => element is int);
       // --- End of Answer ---
 
       return output is List<int> &&
@@ -2492,6 +2539,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel List<double>? output;
       // ? Instruksi: Konversi input menjadi List<double> dengan mengubah setiap elemen menjadi double
       // >>> Tulis jawabanmu di bawah ini
+      String input = "1.5,2.5,3.5";
+      List<double>? output;
+      output = input.split(",").map(double.parse).toList();
 
       // --- End of Answer ---
 
@@ -2505,6 +2555,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel List<bool>? output;
       // ? Instruksi: Konversi input menjadi List<bool> dengan mengubah setiap elemen menjadi boolean
       // >>> Tulis jawabanmu di bawah ini
+      String input = "true,false,true";
+      List<bool>? output;
+      output = input.split(",").map(bool.parse).toList();
 
       // --- End of Answer ---
 
@@ -2518,6 +2571,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel List<DateTime>? output;
       // ? Instruksi: Konversi input menjadi List<DateTime> dengan mengubah setiap elemen menjadi DateTime
       // >>> Tulis jawabanmu di bawah ini
+      String input = "2022-02-01,2023-01-15,2021-05-10";
+      List<DateTime>? output;
+      output = input.split(",").map(DateTime.parse).toList();
 
       // --- End of Answer ---
 
@@ -2531,6 +2587,9 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel Map<String, int>? output;
       // ? Instruksi: Konversi input menjadi Map<String, int> dengan mengubah setiap elemen menjadi pasangan kunci "fruit" dan nilai 1
       // >>> Tulis jawabanmu di bawah ini
+      String input = "apple,banana,cherry";
+      Map<String, int>? output;
+      output = {for (var fruit in input.split(",")) fruit: 1};
 
       // --- End of Answer ---
 
@@ -2542,6 +2601,10 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel Map<int, String>? output;
       // ? Instruksi: Konversi input menjadi Map<int, String> dengan mengubah setiap elemen menjadi pasangan kunci integer dan nilai "value"
       // >>> Tulis jawabanmu di bawah ini
+      String input = "10,20,30";
+      List<int> keys = input.split(",").map(int.parse).toList();
+      Map<int, String>? output = {for (var key in keys) key: "value"};
+      return output.length == 3;
 
       // --- End of Answer ---
 
@@ -2553,6 +2616,12 @@ class TechnicalTest {
       // ? Instruksi: Buatlah variabel List<int>? output;
       // ? Instruksi: Konversi input menjadi List<int> dengan mengambil nilai dari setiap map dalam list
       // >>> Tulis jawabanmu di bawah ini
+      List<Map<String, int>> input = [
+        {"apple": 3},
+        {"banana": 2},
+        {"cherry": 1}
+      ];
+      List<int>? output = input.map((map) => map.values.first).toList();
 
       // --- End of Answer ---
 
@@ -6523,6 +6592,14 @@ class TechnicalTest {
       // memiliki rating di atas 4.5, tersedia (isAvailable = true), dan memiliki lebih dari 100 ulasan (reviews > 100)
       // Masukkan product yang memenuhi kriteria tersebut ke dalam list featuredProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product['isFeatured'] &&
+            product['rating'] > 4.5 &&
+            product['isAvailable'] &&
+            product['reviews'] > 100) {
+          featuredProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6591,12 +6668,14 @@ class TechnicalTest {
       // Masukkan karyawan yang memenuhi kriteria tersebut ke dalam list highPaidEmployees
       // >>> Tulis kode for loop di sini
       for (var employee in employees) {
-        if (employee['salary'] > 5000 && employee['age'] > 25 &&
-        employee['yearsOfExperience'] > 3 &&
-        (employee['department'] == 'IT' || employee['department'] == 'Finance')) {
+        if (employee['salary'] > 5000 &&
+            employee['age'] > 25 &&
+            employee['yearsOfExperience'] > 3 &&
+            (employee['department'] == 'IT' ||
+                employee['department'] == 'Finance')) {
           highPaidEmployees.add(employee);
-          }
-          }
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6663,11 +6742,12 @@ class TechnicalTest {
       // Masukkan karyawan yang memenuhi kriteria tersebut ke dalam list partTimeEmployees
       // >>> Tulis kode for loop di sini
       for (var employee in employees) {
-        if (employee['isFullTime'] == false && employee['hasHealthInsurance'] == false  
-        && employee['age'] < 25) {
-          partTimeEmployees.add(employee);  
-          } 
-          }
+        if (employee['isFullTime'] == false &&
+            employee['hasHealthInsurance'] == false &&
+            employee['age'] < 25) {
+          partTimeEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 

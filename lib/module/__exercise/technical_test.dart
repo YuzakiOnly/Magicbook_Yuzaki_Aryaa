@@ -3585,7 +3585,7 @@ class TechnicalTest {
     () {
       String input = "Hello World";
       // Tuliskan kode untuk memverifikasi apakah input adalah palindrome
-      bool? output;
+      bool output = input == input.split('').reversed.join('');
 
       return output == false;
     },
@@ -3594,7 +3594,7 @@ class TechnicalTest {
     () {
       String input = "Dart is Awesome";
       // Tuliskan kode untuk mengubah input menjadi huruf kecil semua dan memisahkan kata dengan spasi menjadi underscore
-      String? output = "";
+      String output = input.toLowerCase().replaceAll(' ', '_');
 
       return output == "dart_is_awesome";
     },
@@ -3603,7 +3603,7 @@ class TechnicalTest {
     () {
       String input = "1234";
       // Tuliskan kode untuk memverifikasi apakah input adalah angka
-      bool? output;
+      bool output = double.tryParse(input) != null;
 
       return output == true;
     },
@@ -3613,7 +3613,7 @@ class TechnicalTest {
       String input =
           "Dart is a client-optimized programming language for fast apps on multiple platforms.";
       // Tuliskan kode untuk membatasi jumlah karakter pada input menjadi 50 karakter
-      String? output = "";
+      String output = input.length > 50 ? input.substring(0, 50) : input;
 
       return output.length == 50;
     },
@@ -3623,7 +3623,8 @@ class TechnicalTest {
       String input =
           "Dart is a client-optimized programming language for fast apps on multiple platforms.";
       // Tuliskan kode untuk memverifikasi apakah kata "Dart" muncul pada input
-      bool? output = false;
+      bool output = input.contains("Dart");
+
       return output == true;
     },
 
@@ -3631,15 +3632,16 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengecek apakah semua angka pada List numbers adalah angka genap.
-      bool? output = true;
+      bool output = numbers.every((element) => element % 2 == 0);
+
       return output == false;
     },
 
     // Exercise 257
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
-      // Implementasikan kode untuk mengecek apakah ada angka 3 pada List numbers.
-      bool? output = false;
+      // Implementasikan kode untuk mengecek apakah ada angka 3 pada List numbers.\
+      bool output = numbers.contains(3);
       return output;
     },
 
@@ -3647,7 +3649,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menggabungkan semua angka pada List numbers menjadi satu string tanpa spasi, misalnya "12345".
-      String? output = "";
+      String output = numbers.join();
+
       return output == "12345";
     },
 
@@ -3657,7 +3660,8 @@ class TechnicalTest {
       // Implementasikan kode untuk menggabungkan semua angka pada
       // List numbers menjadi satu string dengan spasi di antara angka,
       // misalnya "1 2 3 4 5".
-      String? output = "";
+      String output = numbers.join(" ");
+
       return output == "1 2 3 4 5";
     },
 
@@ -3669,7 +3673,8 @@ class TechnicalTest {
         "city": "New York",
       };
       // Implementasikan kode untuk mendapatkan daftar keys pada Map person.
-      List<String> output = [];
+      List<String> output = person.keys.toList();
+
       return output.contains("name") &&
           output.contains("age") &&
           output.contains("city");
@@ -3683,7 +3688,8 @@ class TechnicalTest {
         "city": "New York",
       };
       // Implementasikan kode untuk mendapatkan daftar values pada Map person.
-      List<dynamic> output = [];
+      List<dynamic> output = person.values.toList();
+
       return output.contains("John") &&
           output.contains(30) &&
           output.contains("New York");
@@ -3693,7 +3699,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung jumlah angka pada List numbers.
-      int? output = -1;
+      int output = numbers.length;
+
       return output == 5;
     },
 
@@ -3701,7 +3708,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung jumlah total dari semua angka pada List numbers.
-      int? output = -1;
+      int output = numbers.reduce((a, b) => a + b);
+
       return output == 15;
     },
 
@@ -3709,7 +3717,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung jumlah total dari semua angka pada List numbers, tapi kali ini tambahkan nilai awal 10.
-      int? output = -1;
+      int output = numbers.reduce((a, b) => a + b) + 10;
+
       return output == 25;
     },
 
@@ -3717,7 +3726,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengambil setiap angka pada List numbers dan kalikan dengan 2, hasilnya disimpan dalam List baru.
-      List<int> output = [];
+      List<int> output = numbers.map((e) => e * 2).toList();
+
       return output.contains(2) && output.contains(10) && output.length == 5;
     },
 
@@ -3725,7 +3735,9 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengambil setiap angka ganjil pada List numbers, hasilnya disimpan dalam List baru.
-      List<int> output = [];
+      List<int> output =
+          numbers.where((e) => e % 2 != 0).map((e) => e).toList();
+
       return output.contains(1) &&
           output.contains(3) &&
           output.contains(5) &&
@@ -3735,6 +3747,7 @@ class TechnicalTest {
     // Exercise 267
     () {
       List<String> fruits = ["banana", "cherry", "apple"];
+      fruits.sort();
       // Implementasikan kode untuk mengurutkan List fruits secara ascending.
       return fruits[0] == "apple" && fruits[2] == "cherry";
     },
@@ -3742,6 +3755,7 @@ class TechnicalTest {
     // Exercise 268
     () {
       List<String> fruits = ["apple", "banana", "cherry"];
+      fruits.sort((a, b) => b.compareTo(a));
       // Implementasikan kode untuk mengurutkan List fruits secara descending.
       return fruits[0] == "cherry" && fruits[2] == "apple";
     },
@@ -3750,7 +3764,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk memeriksa apakah semua angka pada List numbers adalah angka positif (lebih besar dari 0).
-      bool? output = false;
+      bool? output = numbers.every((e) => e > 0);
+
       return output;
     },
 
@@ -3758,7 +3773,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [-1, -2, 3, 4, 5];
       // Implementasikan kode untuk memeriksa apakah ada angka negatif pada List numbers.
-      bool? output = false;
+      bool? output = numbers.any((e) => e < 0);
+
       return output;
     },
 
@@ -3766,7 +3782,8 @@ class TechnicalTest {
     () {
       List<String> fruits = ["apple", "banana", "cherry"];
       // Implementasikan kode untuk memeriksa apakah ada buah dengan nama "apple" pada List fruits.
-      bool? output = false;
+      bool? output = fruits.contains("apple");
+
       return output;
     },
 
@@ -3774,7 +3791,8 @@ class TechnicalTest {
     () {
       List<String> fruits = ["apple", "banana", "cherry"];
       // Implementasikan kode untuk menggabungkan semua elemen pada List fruits menjadi satu string dengan spasi di antara buah-buahnya, misalnya "apple banana cherry".
-      String? output = "";
+      String? output = fruits.join(" ");
+
       return output == "apple banana cherry";
     },
 
@@ -3782,7 +3800,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengubah semua karakter pada variable text menjadi huruf kecil.
-      String? output = "";
+      String? output = text.toLowerCase();
+
       return output == "dart is awesome";
     },
 
@@ -3790,7 +3809,8 @@ class TechnicalTest {
     () {
       String text = "dart is awesome";
       // Implementasikan kode untuk mengubah semua karakter pada variable text menjadi huruf besar.
-      String? output = "";
+      String? output = text.toUpperCase();
+
       return output == "DART IS AWESOME";
     },
 
@@ -3798,7 +3818,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengubah karakter pertama pada variable text menjadi huruf besar.
-      String? output = "";
+      String? output = text[0].toUpperCase() + text.substring(1);
+
       return output == "Dart is awesome";
     },
 
@@ -3806,7 +3827,9 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengubah karakter terakhir pada variable text menjadi huruf besar.
-      String? output = "";
+      String? output = text.substring(0, text.length - 1) +
+          text[text.length - 1].toUpperCase();
+
       return output == "Dart is awesomE";
     },
 
@@ -3814,7 +3837,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengganti kata "awesome" pada variable text dengan kata "fantastic".
-      String? output = "";
+      String? output = text.replaceFirst("awesome", "fantastic");
+
       return output == "Dart is fantastic";
     },
 
@@ -3822,7 +3846,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengambil 10 karakter pertama dari variable text.
-      String? output = "";
+      String? output = text.substring(0, 10);
+
       return output == "Dart is aw";
     },
 
@@ -3830,7 +3855,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengambil 11 karakter terakhir dari variable text.
-      String? output = "";
+      String? output = text.substring(text.length - 11);
+
       return output == " is awesome";
     },
 
@@ -3838,7 +3864,8 @@ class TechnicalTest {
     () {
       String text = "  Dart is awesome  ";
       // Implementasikan kode untuk menghapus spasi di awal dan akhir dari variable text.
-      String? output = "";
+      String? output = text.trim();
+
       return output == "Dart is awesome";
     },
 
@@ -3846,7 +3873,8 @@ class TechnicalTest {
     () {
       List<String> names = ["John", "Jane", "Jim", "Jack", "Jill"];
       // Implementasikan kode untuk menggabungkan semua nama pada List names menjadi satu string dengan koma di antara nama-nama tersebut, misalnya "John, Jane, Jim, Jack, Jill".
-      String? output = "";
+      String? output = names.join(", ");
+
       return output == "John, Jane, Jim, Jack, Jill";
     },
 
@@ -3854,7 +3882,8 @@ class TechnicalTest {
     () {
       String text = "Dart";
       // Implementasikan kode untuk membalikkan urutan karakter pada variable text, sehingga menjadi "traD".
-      String? output = "";
+      String? output = text.split('').reversed.join('');
+
       return output == "traD";
     },
 
@@ -3862,7 +3891,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk memeriksa apakah semua angka pada List numbers adalah angka positif (lebih besar dari 0).
-      bool? output = false;
+      bool? output = numbers.every((element) => element > 0);
+
       return output;
     },
 
@@ -3870,7 +3900,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [33, 22, 13, 14, 15];
       // Implementasikan kode untuk menghitung jumlah angka pada List numbers.
-      int? output = -1;
+      int? output = numbers.length;
+
       return output == 5;
     },
 
@@ -3878,7 +3909,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengambil nilai maksimum dari List numbers.
-      int? output = -1;
+      int? output = numbers.reduce((a, b) => a > b ? a : b);
+
       return output == 5;
     },
 
@@ -3886,13 +3918,15 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengambil nilai minimum dari List numbers.
-      int? output = -1;
+      int? output = numbers.reduce((a, b) => a < b ? a : b);
+
       return output == 1;
     },
 
     // Exercise 287
     () {
       List<int> numbers = [5, 3, 2, 4, 1];
+      numbers.sort();
       // Implementasikan kode untuk mengurutkan List numbers secara ascending.
       return numbers[0] == 1 && numbers[4] == 5;
     },
@@ -3900,6 +3934,7 @@ class TechnicalTest {
     // Exercise 288
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
+      numbers.sort((a, b) => b.compareTo(a));
       // Implementasikan kode untuk mengurutkan List numbers secara descending.
       return numbers[0] == 5 && numbers[4] == 1;
     },
@@ -3908,7 +3943,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah kata "is" muncul pada variable text.
-      bool? output = false;
+      bool? output = text.contains("is");
+
       return output;
     },
 
@@ -3916,7 +3952,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text diakhiri dengan kata "awesome".
-      bool? output = false;
+      bool? output = text.endsWith("awesome");
+
       return output;
     },
 
@@ -3924,7 +3961,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text diawali dengan kata "Dart".
-      bool? output = false;
+      bool? output = text.startsWith("Dart");
+
       return output;
     },
 
@@ -3932,7 +3970,8 @@ class TechnicalTest {
     () {
       String text = "Dart,is,awesome";
       // Implementasikan kode untuk memisahkan kalimat pada variable text berdasarkan tanda koma (","), hasilnya disimpan dalam List baru.
-      List<String>? output = [];
+      List<String>? output = text.split(",");
+
       return output.toString() == '[Dart, is, awesome]';
     },
 
@@ -3940,7 +3979,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengambil substring dari index 5 hingga 10 dari variable text.
-      String? output = "";
+      String? output = text.substring(5, 11);
+
       return output == "is awe";
     },
 
@@ -3948,15 +3988,17 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengambil substring dari index 5 hingga akhir dari variable text.
-      String? output = "";
+      String? output = text.substring(5);
+
       return output == "is awesome";
     },
 
     // Exercise 295
     () {
-      String text = "   Dart is awesome   ";
+      String text = "Dart is awesome";
       // Implementasikan kode untuk menghapus spasi di awal dan akhir dari variable text.
-      String? output = "";
+      String? output = text.trim();
+
       return output == "Dart is awesome";
     },
 
@@ -3964,7 +4006,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengganti kata "is" pada variable text dengan kata "will be".
-      String? output = "";
+      String? output = text.replaceFirst("is", "will be");
+
       return output == "Dart will be awesome";
     },
 
@@ -3972,7 +4015,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengubah karakter pertama pada variable text menjadi huruf besar.
-      String? output = "";
+      String? output = text[0].toUpperCase() + text.substring(1);
+
       return output == "Dart is awesome";
     },
 
@@ -3980,7 +4024,8 @@ class TechnicalTest {
     () {
       String text = "dart is awesome";
       // Implementasikan kode untuk mengubah karakter pertama pada variable text menjadi huruf besar.
-      String? output = "";
+      String? output = text[0].toUpperCase() + text.substring(1);
+
       return output == "Dart is awesome";
     },
 
@@ -3988,7 +4033,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menghapus 3 karakter terakhir dari variable text.
-      String? output = "";
+      String? output = text.substring(0, 11);
+
       return output == "Dart is awe";
     },
 
@@ -3996,7 +4042,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menambahkan karakter "!" pada akhir variable text.
-      String? output = "";
+      String? output = text + "!";
+
       return output == "Dart is awesome!";
     },
 
@@ -4004,7 +4051,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengubah variable text menjadi huruf kecil semua.
-      String? output = "";
+      String? output = text.toLowerCase();
+
       return output == "dart is awesome";
     },
 
@@ -4012,7 +4060,8 @@ class TechnicalTest {
     () {
       String text = "dart is awesome";
       // Implementasikan kode untuk mengubah variable text menjadi huruf besar semua.
-      String? output = "";
+      String? output = text.toUpperCase();
+
       return output == "DART IS AWESOME";
     },
 
@@ -4020,7 +4069,8 @@ class TechnicalTest {
     () {
       String text = "dart is awesome";
       // Implementasikan kode untuk mengubah karakter pertama pada variable text menjadi huruf besar.
-      String? output = "";
+      String? output = text[0].toUpperCase() + text.substring(1);
+
       return output == "Dart is awesome";
     },
 
@@ -4028,7 +4078,8 @@ class TechnicalTest {
     () {
       String text = "dart is awesome";
       // Implementasikan kode untuk mengubah karakter terakhir pada variable text menjadi huruf besar.
-      String? output = "";
+      String? output = text.substring(0, text.length - 1) + text[text.length - 1].toUpperCase();
+
       return output == "dart is awesomE";
     },
 
@@ -4036,7 +4087,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengganti kata "awesome" pada variable text dengan kata "fantastic".
-      String? output = "";
+      String? output = text.replaceFirst("awesome", "fantastic");
+
       return output == "Dart is fantastic";
     },
 
@@ -4044,7 +4096,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengambil 10 karakter pertama dari variable text.
-      String? output = "";
+      String? output = text.substring(0, 10);
+
       return output == "Dart is aw";
     },
 
@@ -4052,15 +4105,17 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengambil 8 karakter terakhir dari variable text.
-      String? output = "";
-      return output == " is awesome";
+      String output = text.substring(text.length - 10);
+      
+      return output == "is awesome";
     },
 
     // Exercise 308
     () {
       String text = "  Dart is awesome  ";
       // Implementasikan kode untuk menghapus spasi di awal dan akhir dari variable text.
-      String? output = "";
+      String? output = text.trim();
+
       return output == "Dart is awesome";
     },
 
@@ -4068,7 +4123,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah kata "Dart" muncul pada variable text.
-      bool? output = false;
+      bool? output = text.contains("Dart");
+
       return output;
     },
 
@@ -4076,7 +4132,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text mengandung huruf "a".
-      bool? output = false;
+      bool? output = text.contains("a");
+
       return output;
     },
 
@@ -4084,7 +4141,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text mengandung huruf "x".
-      bool? output = null;
+      bool? output = text.contains("x");
+
       return output == false;
     },
 
@@ -4092,7 +4150,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menghitung jumlah huruf "a" pada variable text.
-      int? output = -1;
+      int? output = text.split("a").length - 1;
+
       return output == 2;
     },
 
@@ -4100,7 +4159,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menghitung jumlah huruf "x" pada variable text.
-      int? output = -1;
+      int? output = text.split("x").length - 1;
+
       return output == 0;
     },
 
@@ -4108,7 +4168,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menghitung jumlah huruf "a" atau "A" pada variable text.
-      int? output = -1;
+      int? output = text.toLowerCase().split("a").length - 1;
+
       return output == 2;
     },
 
@@ -4116,7 +4177,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text mengandung kata "is".
-      bool? output = false;
+      bool? output = text.contains("is");
+
       return output;
     },
 
@@ -4124,7 +4186,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text diawali dengan kata "Dart" dan mengandung kata "awesome".
-      bool? output = false;
+      bool? output = text.startsWith("Dart") && text.contains("awesome");
+
       return output;
     },
 
@@ -4132,7 +4195,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text diakhiri dengan huruf "e".
-      bool? output = false;
+      bool? output = text.endsWith("e");
+
       return output;
     },
 
@@ -4140,7 +4204,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk memeriksa apakah variable text mengandung huruf "x" dan "a".
-      bool? output = null;
+      bool? output = text.contains("x") && text.contains("a");
+
       return output == false;
     },
 
@@ -4148,7 +4213,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menggabungkan variable text dengan string " and Flutter", hasilnya disimpan dalam variable baru.
-      String? output = "";
+      String? output = text + " and Flutter";
+
       return output == "Dart is awesome and Flutter";
     },
 
@@ -4156,8 +4222,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menggabungkan variable text dengan string " and Flutter" dengan menggunakan operator +=, hasilnya disimpan dalam variable baru.
-      String? output = "";
-      output += " and Flutter";
+      String? output = text += " and Flutter";
+
       return output == "Dart is awesome and Flutter";
     },
 
@@ -4165,7 +4231,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk menggabungkan variable text dengan string " and Flutter" dengan menggunakan method concat, hasilnya disimpan dalam variable baru.
-      String? output = "";
+      String? output = text + " and Flutter";
+
       return output == "Dart is awesome and Flutter";
     },
 
@@ -4173,7 +4240,8 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengubah variable text menjadi list kata-kata, hasilnya disimpan dalam variable baru.
-      List<String>? output = [];
+      List<String>? output = text.split(" ");
+
       return output.toString() == '[Dart, is, awesome]';
     },
 
@@ -4182,7 +4250,8 @@ class TechnicalTest {
       String text = "Awesome";
       // Implementasikan kode untuk mengubah variable text menjadi list karakter,
       // hasilnya disimpan dalam variable output.
-      List<String>? output = [];
+      List<String>? output = text.split("");
+
       return output.join("") == "Awesome";
     },
 
@@ -4190,14 +4259,17 @@ class TechnicalTest {
     () {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengubah list kata-kata pada variable text menjadi kalimat utuh, hasilnya disimpan dalam variable baru.
-      String? output = "";
+      String? output = text.split(" ").join(" ");
+
       return output == "Dart is awesome";
     },
 
     // Exercise 325
     () {
       List<String> fruits = ["apple", "banana", "cherry"];
+      fruits.add("orange");
       // Implementasikan kode untuk menambahkan kata "orange" pada List fruits.
+
       return fruits.contains("orange");
     },
 
@@ -4205,8 +4277,8 @@ class TechnicalTest {
     () {
       List<String> fruits = ["apple", "banana", "cherry"];
       // Implementasikan kode untuk menggabungkan dua List menjadi satu, hasilnya disimpan dalam variable baru.
-      List<String>? otherFruits = ["orange", "grape"];
-      List<String>? output = [];
+      List<String>? output = [...fruits, "orange", "grape"];
+
       return output.toString() == '[apple, banana, cherry, orange, grape]';
     },
 
@@ -4214,7 +4286,8 @@ class TechnicalTest {
     () {
       List<String> fruits = ["apple", "banana", "cherry"];
       // Implementasikan kode untuk menggabungkan dua List menjadi satu, hasilnya disimpan dalam List fruits.
-      List<String>? otherFruits = ["orange", "grape"];
+      fruits.addAll(["orange", "grape"]);
+
       return fruits.toString() == '[apple, banana, cherry, orange, grape]';
     },
 
@@ -4222,7 +4295,8 @@ class TechnicalTest {
     () {
       List<String> fruits = ["apple", "banana", "cherry", "orange", "grape"];
       // Implementasikan kode untuk mengambil dua elemen pertama dari List fruits.
-      List<String>? output = [];
+      List<String>? output = fruits.take(2).toList();
+
       return output.toString() == '[apple, banana]';
     },
 
@@ -4230,6 +4304,8 @@ class TechnicalTest {
     () {
       List<String> fruits = ["apple", "banana", "cherry", "orange", "grape"];
       // Implementasikan kode untuk menghapus dua elemen pertama dari List fruits.
+      fruits.removeRange(0, 2);
+
       return fruits.toString() == '[cherry, orange, grape]';
     },
 
@@ -4237,6 +4313,8 @@ class TechnicalTest {
     () {
       List<String> fruits = ["apple", "banana", "cherry", "orange", "grape"];
       // Implementasikan kode untuk menghapus elemen dengan nilai "cherry" dari List fruits.
+      fruits.remove("cherry");
+
       return !fruits.contains("cherry");
     },
 
@@ -4244,7 +4322,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung jumlah semua angka pada List numbers.
-      int? output = -1;
+      int output = numbers.length;
+      
       return output == 15;
     },
 
@@ -4252,7 +4331,8 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung hasil perkalian semua angka pada List numbers.
-      int? output = -1;
+      int output = numbers.reduce((a, b) => a * b);
+      
       return output == 120;
     },
 
@@ -4260,7 +4340,12 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung hasil pembagian semua angka pada List numbers (dalam bentuk double).
-      double? output = 0;
+      double output = numbers[0].toDouble();
+  
+      // Loop untuk membagi angka-angka dalam list
+      for (int i = 1; i < numbers.length; i++) {
+        output /= numbers[i];
+      }
       return output.toStringAsFixed(2) == "3.00";
     },
 

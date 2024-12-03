@@ -4078,7 +4078,8 @@ class TechnicalTest {
     () {
       String text = "dart is awesome";
       // Implementasikan kode untuk mengubah karakter terakhir pada variable text menjadi huruf besar.
-      String? output = text.substring(0, text.length - 1) + text[text.length - 1].toUpperCase();
+      String? output = text.substring(0, text.length - 1) +
+          text[text.length - 1].toUpperCase();
 
       return output == "dart is awesomE";
     },
@@ -4106,7 +4107,7 @@ class TechnicalTest {
       String text = "Dart is awesome";
       // Implementasikan kode untuk mengambil 8 karakter terakhir dari variable text.
       String output = text.substring(text.length - 10);
-      
+
       return output == "is awesome";
     },
 
@@ -4314,7 +4315,6 @@ class TechnicalTest {
       List<String> fruits = ["apple", "banana", "cherry", "orange", "grape"];
       // Implementasikan kode untuk menghapus elemen dengan nilai "cherry" dari List fruits.
       fruits.remove("cherry");
-
       return !fruits.contains("cherry");
     },
 
@@ -4322,8 +4322,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung jumlah semua angka pada List numbers.
-      int output = numbers.length;
-      
+      int output = numbers.reduce((a, b) => a + b);
       return output == 15;
     },
 
@@ -4332,20 +4331,15 @@ class TechnicalTest {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung hasil perkalian semua angka pada List numbers.
       int output = numbers.reduce((a, b) => a * b);
-      
       return output == 120;
     },
 
     // Exercise 333
     () {
-      List<int> numbers = [1, 2, 3, 4, 5];
+      List<double> numbers = [1.0, 2, 3, 4, 5];
       // Implementasikan kode untuk menghitung hasil pembagian semua angka pada List numbers (dalam bentuk double).
-      double output = numbers[0].toDouble();
-  
-      // Loop untuk membagi angka-angka dalam list
-      for (int i = 1; i < numbers.length; i++) {
-        output /= numbers[i];
-      }
+      double output = numbers.reduce((a, b) => a / b);
+
       return output.toStringAsFixed(2) == "3.00";
     },
 
@@ -4353,7 +4347,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk memeriksa apakah semua angka pada List numbers adalah angka positif (lebih besar dari 0).
-      bool? output = false;
+      bool output = numbers.every((num) => num > 0);
       return output;
     },
 
@@ -4361,7 +4355,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk memeriksa apakah setidaknya ada satu angka pada List numbers yang merupakan angka genap.
-      bool? output = false;
+      bool output = numbers.any((num) => num % 2 == 0);
       return output;
     },
 
@@ -4369,7 +4363,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menemukan angka pertama pada List numbers yang merupakan angka genap.
-      int? output = -1;
+      int output = numbers.firstWhere((num) => num % 2 == 0, orElse: () => -1);
       return output == 2;
     },
 
@@ -4377,7 +4371,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menemukan angka pertama pada List numbers yang merupakan angka ganjil.
-      int? output = -1;
+      int output = numbers.firstWhere((num) => num % 2 != 0, orElse: () => -1);
       return output == 1;
     },
 
@@ -4385,7 +4379,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menemukan indeks angka pertama pada List numbers yang merupakan angka genap.
-      int? output = -1;
+      int output = numbers.indexWhere((num) => num % 2 == 0);
       return output == 1;
     },
 
@@ -4393,7 +4387,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menemukan indeks angka pertama pada List numbers yang merupakan angka ganjil.
-      int? output = -1;
+      int output = numbers.indexWhere((num) => num % 2 != 0);
       return output == 0;
     },
 
@@ -4401,6 +4395,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghapus angka pertama pada List numbers yang merupakan angka genap.
+      numbers.removeWhere((num) => num % 2 == 0);
       return !numbers.contains(2);
     },
 
@@ -4408,6 +4403,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menghapus semua angka pada List numbers yang merupakan angka ganjil.
+      numbers.removeWhere((number) => number.isOdd);
       return !numbers.contains(1) &&
           !numbers.contains(3) &&
           !numbers.contains(5);
@@ -4417,6 +4413,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengubah semua angka pada List numbers menjadi dua kali lipatnya.
+      numbers = numbers.map((number) => number * 2).toList();
       return numbers.toString() == '[2, 4, 6, 8, 10]';
     },
 
@@ -4424,7 +4421,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengambil dua elemen terakhir dari List numbers.
-      List<int>? output = [];
+      List<int> output = numbers.sublist(numbers.length - 2);
       return output.toString() == '[4, 5]';
     },
 
@@ -4432,7 +4429,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengambil tiga elemen pertama dari List numbers.
-      List<int>? output = [];
+      List<int> output = numbers.sublist(0, 3);
       return output.toString() == '[1, 2, 3]';
     },
 
@@ -4440,7 +4437,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengambil tiga elemen terakhir dari List numbers.
-      var output = [];
+      List<int> output = numbers.sublist(numbers.length - 3);
       return output.toString() == '[3, 4, 5]';
     },
 
@@ -4448,6 +4445,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [5, 3, 2, 1, 4];
       // Implementasikan kode untuk mengurutkan List numbers secara ascending.
+      numbers.sort();
       return numbers.toString() == '[1, 2, 3, 4, 5]';
     },
 
@@ -4455,6 +4453,7 @@ class TechnicalTest {
     () {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk mengurutkan List numbers secara descending.
+      numbers.sort((a, b) => b.compareTo(a));
       return numbers.toString() == '[5, 4, 3, 2, 1]';
     },
 
@@ -4463,7 +4462,8 @@ class TechnicalTest {
       List<int> numbers = [1, 2, 3, 4, 5];
       // Implementasikan kode untuk menggabungkan List numbers dengan List numbers lainnya, kemudian mengurutkannya secara ascending.
       List<int>? otherNumbers = [6, 7, 8];
-      List<int>? output = [];
+      List<int> output = [...numbers, ...otherNumbers];
+      output.sort();
       return output.toString() == '[1, 2, 3, 4, 5, 6, 7, 8]';
     },
 
@@ -4473,6 +4473,9 @@ class TechnicalTest {
       List output = [];
       // ? Instruksi:Gunakan looping for untuk menambahkan semua item dari numbers ke output
       // >>> Tulis kode for loop di sini
+      for (var number in numbers) {
+        output.add(number);
+      }
 
       // --- End of Answer ---
       return output.toString() == "[10, 20, 30, 40]";
@@ -4485,6 +4488,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menambahkan semua item dari fruits ke output
       // >>> Tulis kode for loop di sini
+      for (var fruit in fruits) {
+        output.add(fruit);
+      }
 
       // --- End of Answer ---
 
@@ -4498,6 +4504,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menambahkan semua item dari numbers ke output
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        output.add(numbers[i]);
+      }
 
       // --- End of Answer ---
 
@@ -4511,6 +4520,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari apakah terdapat 'kiwi' dalam list fruits
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < fruits.length; i++) {
+        if (fruits[i] == 'kiwi') {
+          output = true;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4524,6 +4539,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list multiplesOfN dengan kelipatan n dari 1 hingga 5
       // >>> Tulis kode for loop di sini
+      for (int i = 1; i <= 5; i++) {
+        multiplesOfN.add(n * i);
+      }
 
       // --- End of Answer ---
 
@@ -4537,6 +4555,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menggabungkan semua item dari colors menjadi satu string result
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < colors.length; i++) {
+        result += colors[i];
+      }
 
       // --- End of Answer ---
 
@@ -4550,6 +4571,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menjumlahkan semua item dari numbers ke dalam variabel sum
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+      }
 
       // --- End of Answer ---
 
@@ -4563,6 +4587,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengalikan semua item dari numbers ke dalam variabel product
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        product *= numbers[i];
+      }
 
       // --- End of Answer ---
 
@@ -4576,6 +4603,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list reversedNumbers dengan item dari numbers secara terbalik
       // >>> Tulis kode for loop di sini
+      for (int i = numbers.length - 1; i >= 0; i--) {
+        reversedNumbers.add(numbers[i]);
+      }
 
       // --- End of Answer ---
 
@@ -4589,6 +4619,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list oddNumbers dengan item dari numbers yang merupakan bilangan ganjil
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 != 0) {
+          oddNumbers.add(numbers[i]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4603,6 +4638,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari apakah target ada di dalam list numbers
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        if (numbers[i] == target) {
+          exists = true;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4616,6 +4657,13 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengecek apakah semua angka dalam list numbers dapat dibagi dengan 3 (hasil bagi = 0)
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 3 != 0) {
+          allDivisibleBy3 = false;
+          break;
+        } else
+          allDivisibleBy3 = true;
+      }
 
       // --- End of Answer ---
       return allDivisibleBy3;
@@ -4629,6 +4677,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari apakah target ada di dalam list fruits
       // >>> Tulis kode for loop di sini
+      for (String fruit in fruits) {
+        if (fruit == target) {
+          found = true;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4642,6 +4696,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menggabungkan semua item dari list fruits menjadi satu string joinedFruits
       // >>> Tulis kode for loop di sini
+      for (String fruit in fruits) {
+        joinedFruits += fruit; // Append each fruit to the joinedFruits string
+      }
 
       // --- End of Answer ---
 
@@ -4655,6 +4712,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengalikan semua angka dalam list numbers
       // >>> Tulis kode for loop di sini
+      for (int number in numbers) {
+        product *= number;
+      }
 
       // --- End of Answer ---
 
@@ -4668,6 +4728,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list reversedNumbers dengan item dari list numbers secara terbalik
       // >>> Tulis kode for loop di sini
+      for (int i = numbers.length - 1; i >= 0; i--) {
+        reversedNumbers.add(numbers[i]);
+      }
 
       // --- End of Answer ---
 
@@ -4681,6 +4744,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list oddNumbers dengan item dari list numbers yang merupakan bilangan ganjil
       // >>> Tulis kode for loop di sini
+      for (int number in numbers) {
+        if (number % 2 != 0) {
+          oddNumbers.add(number);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4694,6 +4762,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total penjualan (salesTotal) dari list sales
       // >>> Tulis kode for loop di sini
+      for (int sale in sales) {
+        salesTotal += sale;
+      }
 
       // --- End of Answer ---
 
@@ -4707,9 +4778,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung rata-rata penjualan (salesAverage) dari list sales
       // >>> Tulis kode for loop di sini
+      for (int sale in sales) {
+        salesAverage += sale; // Sum all sales
+      }
+      salesAverage /= sales.length; // Calculate the average
 
       // --- End of Answer ---
-
       return salesAverage == 300;
     },
 
@@ -4720,6 +4794,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari harga produk termurah (cheapestProduct) dari list productPrices
       // >>> Tulis kode for loop di sini
+      for (int price in productPrices) {
+        if (price < cheapestProduct || cheapestProduct == 0) {
+          cheapestProduct = price;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4733,6 +4812,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari harga produk termahal (expensiveProduct) dari list productPrices
       // >>> Tulis kode for loop di sini
+      for (int price in productPrices) {
+        if (price > expensiveProduct) {
+          expensiveProduct = price;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4753,6 +4837,14 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari produk favorit (favoriteProduct) yang paling sering muncul dalam list products
       // >>> Tulis kode for loop di sini
+      Map<String, int> productCount = {};
+
+      for (String product in products) {
+        productCount[product] = (productCount[product] ?? 0) + 1;
+      }
+
+      favoriteProduct =
+          productCount.entries.reduce((a, b) => a.value > b.value ? a : b).key;
 
       // --- End of Answer ---
 
@@ -4766,6 +4858,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list squaredNumbers dengan nilai kuadrat dari setiap angka dalam list numbers
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        squaredNumbers.add(numbers[i] * numbers[i]);
+      }
 
       // --- End of Answer ---
 
@@ -4779,6 +4874,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list evenNumbers dengan angka genap dari list numbers
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 == 0) {
+          evenNumbers.add(numbers[i]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4792,6 +4892,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list oddNumbers dengan angka ganjil dari list numbers
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 != 0) {
+          oddNumbers.add(numbers[i]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4805,6 +4910,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list capitalizedFruits dengan semua item dari list fruits yang telah dijadikan huruf kapital
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < fruits.length; i++) {
+        capitalizedFruits.add(fruits[i].toUpperCase());
+      }
 
       // --- End of Answer ---
 
@@ -4818,6 +4926,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menggabungkan semua item dari list names menjadi satu string concatenatedNames, dipisahkan oleh koma
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < names.length; i++) {
+        concatenatedNames += names[i];
+        if (i < names.length - 1) {
+          concatenatedNames += ",";
+        }
+      }
 
       // --- End of Answer ---
       return concatenatedNames == "Alice,Bob,Charlie,David";
@@ -4830,6 +4944,8 @@ class TechnicalTest {
 
       // ? Isi list 'sortedNumbers' dengan angka-angka yang telah diurutkan secara descending.
       // >>> Tulis kode for loop di sini
+      sortedNumbers = List.from(numbers);
+      sortedNumbers.sort((a, b) => b.compareTo(a));
 
       // --- End of Answer ---
 
@@ -4843,6 +4959,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list filteredFruits dengan nama-nama buah yang memiliki huruf 'a' di dalamnya.
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < fruits.length; i++) {
+        if (fruits[i].contains('a')) {
+          filteredFruits.add(fruits[i]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4856,6 +4977,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menjumlahkan semua item dari numbers ke dalam variabel sum, tetapi berhenti jika jumlahnya mencapai 10.
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < numbers.length; i++) {
+        if (sum + numbers[i] >= 10) {
+          break;
+        }
+        sum += numbers[i];
+      }
 
       // --- End of Answer ---
 
@@ -4869,6 +4996,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list reversedNumbers dengan item dari numbers secara terbalik
       // >>> Tulis kode for loop di sini
+      for (int i = numbers.length - 1; i >= 0; i--) {
+        reversedNumbers.add(numbers[i]);
+      }
 
       // --- End of Answer ---
 
@@ -4882,6 +5012,10 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menggabungkan semua item dari list words menjadi satu string concatenatedWords, dipisahkan oleh spasi.
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < words.length; i++) {
+        concatenatedWords += words[i];
+        concatenatedWords += " ";
+      }
 
       // --- End of Answer ---
 
@@ -4895,6 +5029,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list squaredNumbers dengan hasil kuadrat dari setiap angka dalam list numbers.
       // >>> Tulis kode for loop di sini
+      for (int number in numbers) {
+        squaredNumbers.add(number * number);
+      }
 
       // --- End of Answer ---
 
@@ -4908,6 +5045,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari nilai terkecil (minimum) dalam list numbers dan simpan dalam variabel minValue.
       // >>> Tulis kode for loop di sini
+      for (int i = 1; i < numbers.length; i++) {
+        if (numbers[i] < minValue) {
+          minValue = numbers[i];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4921,6 +5063,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari nilai terbesar (maximum) dalam list numbers dan simpan dalam variabel maxValue.
       // >>> Tulis kode for loop di sini
+      for (int i = 1; i < numbers.length; i++) {
+        if (numbers[i] > maxValue) {
+          maxValue = numbers[i];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4934,6 +5081,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list evenNumbers dengan angka-angka genap dari list numbers.
       // >>> Tulis kode for loop di sini
+      for (int number in numbers) {
+        if (number % 2 == 0) {
+          evenNumbers.add(number);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4949,6 +5101,11 @@ class TechnicalTest {
       // dengan angka-angka genap dari list numbers.
       // Kalikan angka genap itu dengan 9
       // >>> Tulis kode for loop di sini
+      for (int number in numbers) {
+        if (number % 2 == 0) {
+          evenNumbers.add(number * 9);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -4978,6 +5135,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list filteredUsers dengan ketentuan User yang huruf depannya adalah A
       // >>> Tulis kode for loop di sini
+      for (Map user in users) {
+        if (user["name"].toString().startsWith("A")) {
+          filteredUsers.add(user);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5007,6 +5169,11 @@ class TechnicalTest {
       List<Map<String, dynamic>> filteredUsers = [];
       // Instruksi: Gunakan looping for untuk mengisi list filteredUsers dengan ketentuan User yang huruf depannya adalah "D"
       // >>> Tulis kode for loop di sini
+      for (Map<String, dynamic> user in users) {
+        if (user["name"].toString().startsWith("D")) {
+          filteredUsers.add(user);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5036,6 +5203,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mengisi list filteredUsers dengan ketentuan User yang usianya di atas 30 tahun
       // >>> Tulis kode for loop di sini
+      for (Map<String, dynamic> user in users) {
+        if (user["age"] > 30) {
+          filteredUsers.add(user);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5065,6 +5237,9 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mengisi list names dengan semua nama dari users
       // >>> Tulis kode for loop di sini
+      for (Map<String, dynamic> user in users) {
+        names.add(user["name"]);
+      }
 
       // --- End of Answer ---
 
@@ -5094,6 +5269,12 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mencari user dengan id = 2 dan kembalikan nilai usianya
       // >>> Tulis kode for loop di sini
+      for (Map<String, dynamic> user in users) {
+        if (user["id"] == 2) {
+          age = user["age"];
+          break; // Hentikan loop setelah menemukan user dengan id = 2
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5123,6 +5304,12 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mengecek apakah users mengandung user dengan id = 3
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < users.length; i++) {
+        if (users[i]["id"] == 3) {
+          containsId3 = true;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5152,6 +5339,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mengupdate usia setiap user menjadi usia + 1 dan masukkan ke dalam list updatedUsers
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < users.length; i++) {
+        Map<String, dynamic> updatedUser = Map.from(users[i]);
+        updatedUser["age"] += 1;
+        updatedUsers.add(updatedUser);
+      }
 
       // --- End of Answer ---
 
@@ -5182,6 +5374,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mengisi list filteredUsers dengan user yang memiliki properti "address"
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < users.length; i++) {
+        if (users[i].containsKey("address")) {
+          filteredUsers.add(users[i]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5211,6 +5408,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mengisi list names dengan nama-nama user yang usianya kurang dari 30 tahun
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < users.length; i++) {
+        if (users[i]["age"] < 30) {
+          names.add(users[i]["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5239,6 +5441,12 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mencari user dengan id = 3 dan hapus user tersebut dari list users
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < users.length; i++) {
+        if (users[i]["id"] == 3) {
+          users.removeAt(i);
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5257,6 +5465,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total penjualan (amount positif) dari data transaksi
       // >>> Tulis kode for loop di sini
+      for (var transaction in data) {
+        if (transaction["amount"] > 0) {
+          totalSales += (transaction["amount"] as int);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5275,6 +5488,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total refund (amount negatif) dari data transaksi
       // >>> Tulis kode for loop di sini
+      for (var transaction in data) {
+        if (transaction["amount"] < 0) {
+          totalRefunds += (-transaction["amount"] as int);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5293,6 +5511,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total penjualan dengan isPromo true dari data transaksi
       // >>> Tulis kode for loop di sini
+      for (var transaction in data) {
+        if (transaction["isPromo"] == true) {
+          totalPromoSales += (transaction["amount"] as int);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5311,6 +5534,12 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total penjualan kategori "Electronics" dari data transaksi
       // >>> Tulis kode for loop di sini
+      for (var transaction in data) {
+        if (transaction["category"] == "Electronics" &&
+            transaction["amount"] > 0) {
+          totalElectronicsSales += (transaction["amount"] as int);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5329,6 +5558,12 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total refund kategori "Fashion" dari data transaksi
       // >>> Tulis kode for loop di sini
+      for (var transaction in data) {
+        if (transaction["transaction"] == "Refund" &&
+            transaction["category"] == "Fashion") {
+          totalFashionRefunds += (transaction["amount"] as int);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5347,6 +5582,12 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total penjualan kategori "Electronics" dari data transaksi
       // >>> Tulis kode for loop di sini
+      for (var transaction in data) {
+        if (transaction["category"] == "Electronics" &&
+            transaction["transaction"] == "Sale") {
+          totalSalesInElectronics += (transaction["amount"] as int);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5366,6 +5607,14 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total penjualan dan refund dari data transaksi
       // >>> Tulis kode for loop di sini
+      for (var transaction in data) {
+        if (transaction["transaction"] == "Sale") {
+          totalSales += (transaction["amount"] as int);
+        } else if (transaction["transaction"] == "Refund") {
+          totalRefunds += -(transaction["amount"]
+              as int); // Ubah nilai ke positif karena amount negatif
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5383,6 +5632,10 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk menghitung total gaji (hoursWorked * hourlyRate) dari data karyawan
       // >>> Tulis kode for loop di sini
+      for (var employee in data) {
+        totalSalary +=
+            (employee["hoursWorked"] as int) * (employee["hourlyRate"] as int);
+      }
 
       // --- End of Answer ---
       return totalSalary == 2150;
@@ -5399,6 +5652,11 @@ class TechnicalTest {
 
       // Instruksi: Gunakan looping for untuk mencari nilai maksimum dari "hourlyRate" pada data karyawan
       // >>> Tulis kode for loop di sini
+      for (var employee in data) {
+        if (employee['hourlyRate'] > maxHourlyRate) {
+          maxHourlyRate = employee['hourlyRate'];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5416,6 +5674,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total harga dari semua produk di dalam list products
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        totalHarga += product['price'];
+      }
 
       // --- End of Answer ---
 
@@ -5433,6 +5694,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total pendapatan dari semua transaksi di dalam list transactions
       // >>> Tulis kode for loop di sini
+      for (var transaction in transactions) {
+        totalPendapatan += transaction['amount'] * transaction['price'];
+      }
 
       // --- End of Answer ---
 
@@ -5450,6 +5714,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total gaji dari semua karyawan di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        totalGaji += employee['salary'];
+      }
 
       // --- End of Answer ---
 
@@ -5469,6 +5736,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total nilai pemesanan dari semua orders di dalam list orders
       // >>> Tulis kode for loop di sini
+      for (var order in orders) {
+        totalNilaiPemesanan += order['quantity'] * order['price'];
+      }
 
       // --- End of Answer ---
 
@@ -5491,6 +5761,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari nilai tertinggi dari shippingCost di dalam list shipments
       // >>> Tulis kode for loop di sini
+      for (var shipment in shipments) {
+        if (shipment['shippingCost'] > maxBiayaPengiriman) {
+          maxBiayaPengiriman = shipment['shippingCost'];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5509,6 +5784,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung jumlah kehadiran (isPresent = true) di dalam list attendance
       // >>> Tulis kode for loop di sini
+      for (var record in attendance) {
+        if (record['isPresent'] == true) {
+          jumlahHadir++;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5526,6 +5806,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari nilai tertinggi dari stock di dalam list warehouse
       // >>> Tulis kode for loop di sini
+      for (var item in warehouse) {
+        if (item["stock"] > maxStok) {
+          maxStok = item["stock"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5543,6 +5828,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung jumlah tugas yang telah selesai (progress = 100) di dalam list projectTasks
       // >>> Tulis kode for loop di sini
+      for (var task in projectTasks) {
+        if (task["progress"] == 100) {
+          jumlahSelesai++;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5561,6 +5851,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mengisi list hadirOnly dengan data karyawan yang hadir (isPresent = true)
       // >>> Tulis kode for loop di sini
+      for (var employee in employeeAttendance) {
+        if (employee["isPresent"] == true) {
+          hadirOnly.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5579,6 +5874,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total nilai dari semua siswa di dalam list studentScores
       // >>> Tulis kode for loop di sini
+      for (var student in studentScores) {
+        totalScore += student["score"];
+      }
 
       // --- End of Answer ---
 
@@ -5598,6 +5896,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total penjualan (quantitySold) dari semua produk di dalam list sales
       // >>> Tulis kode for loop di sini
+      for (var sale in sales) {
+        totalSales += sale["quantitySold"];
+      }
 
       // --- End of Answer ---
 
@@ -5615,6 +5916,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total gaji (salary) dari semua karyawan di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        totalSalary += employee["salary"];
+      }
 
       // --- End of Answer ---
 
@@ -5629,9 +5933,14 @@ class TechnicalTest {
         {"id": 3, "name": "Bob", "age": 35, "salary": 4500000},
       ];
       double averageAge = 0;
+      
 
       // ? Instruksi: Gunakan looping for untuk menghitung rata-rata usia (age) dari semua karyawan di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        averageAge += employee["age"];
+      }
+      averageAge = averageAge / employees.length;
 
       // --- End of Answer ---
 
@@ -5650,6 +5959,14 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari harga termahal dan harga termurah dari semua produk di dalam list products
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] > maxPrice) {
+          maxPrice = product["price"];
+        }
+        if (product["price"] < minPrice) {
+          minPrice = product["price"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5668,6 +5985,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari produk terlaris (dengan quantitySold terbanyak) di dalam list products
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["quantitySold"] > maxQuantitySold) {
+          maxQuantitySold = product["quantitySold"];
+          bestProduct = product["name"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5686,6 +6009,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari karyawan terbaik (dengan KPI tertinggi) di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["kpi"] > maxKpi) {
+          maxKpi = employee["kpi"];
+          bestEmployee = employee["name"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5703,6 +6032,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan KPI rendah (kurang dari 80) di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["kpi"] < 80) {
+          lowPerformers.add(employee["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5720,6 +6054,9 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk menghitung total KPI dari semua karyawan di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        totalKpi += employee["kpi"];
+      }
 
       // --- End of Answer ---
 
@@ -5734,11 +6071,19 @@ class TechnicalTest {
         {"id": 3, "name": "Headphones", "price": 350000, "quantitySold": 75},
       ];
 
-      int maxPrice = 0;
-      int minPrice = 0;
+      int maxPrice = products[0]["price"];
+      int minPrice = products[0]["price"];
 
       // ? Instruksi: Gunakan looping for untuk mencari harga termahal dan harga termurah dari semua produk di dalam list products
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] > maxPrice) {
+          maxPrice = product["price"];
+        }
+        if (product["price"] < minPrice) {
+          minPrice = product["price"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5757,6 +6102,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari produk terlaris (dengan quantitySold terbanyak) di dalam list products
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["quantitySold"] > maxQuantitySold) {
+          maxQuantitySold = product["quantitySold"];
+          bestProduct = product["name"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5775,6 +6126,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan absensi bagus (sedikit absentDays) di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["absentDays"] < minAbsentDays) {
+          minAbsentDays = employee["absentDays"];
+          bestEmployee = employee["name"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5793,6 +6150,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan penjualan tercepat (dengan soldInDays terbanyak) di dalam list products
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["soldInDays"] > maxSoldInDays) {
+          maxSoldInDays = product["soldInDays"];
+          bestProduct = product["name"];
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5810,6 +6173,11 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan KPI tinggi (lebih dari 80) di dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["kpi"] > 80) {
+          highPerformers.add(employee["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5828,6 +6196,15 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan penjualan tercepat (dengan soldInDays terbanyak) di dalam list products
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["soldInDays"] > maxSoldInDays) {
+          maxSoldInDays = product["soldInDays"];
+          bestProducts.clear();
+          bestProducts.add(product["name"]);
+        } else if (product["soldInDays"] == maxSoldInDays) {
+          bestProducts.add(product["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5846,6 +6223,12 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan KPI tinggi (lebih dari 80) di dalam list employees
       // Kemudian masukkan data karyawan tersebut ke dalam list highPerformers
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["kpi"] > 80) {
+          highPerformers
+              .add(employee); // Masukkan data karyawan ke dalam highPerformers
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5866,6 +6249,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan KPI rendah (kurang dari 80) di dalam list employees
       // Kemudian masukkan data karyawan tersebut ke dalam list lowPerformers
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["kpi"] < 80) {
+          lowPerformers.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5885,6 +6273,15 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan penjualan tercepat (dengan soldInDays terbanyak) di dalam list products
       // Kemudian masukkan data produk tersebut ke dalam list bestProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["soldInDays"] > maxSoldInDays) {
+          maxSoldInDays = product["soldInDays"];
+          bestProducts.clear();
+          bestProducts.add(product);
+        } else if (product["soldInDays"] == maxSoldInDays) {
+          bestProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5900,10 +6297,20 @@ class TechnicalTest {
         {"id": 3, "name": "Bob", "kpi": 70, "absentDays": 1},
       ];
       List<Map<String, dynamic>> goodPerformers = [];
+      int minAbsentDays = double.maxFinite.toInt();
 
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan absensi bagus (sedikit absentDays) di dalam list employees
       // Kemudian masukkan data karyawan tersebut ke dalam list goodPerformers
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["absentDays"] < minAbsentDays) {
+          minAbsentDays = employee["absentDays"];
+          goodPerformers.clear(); // Clear previous good performers
+          goodPerformers.add(employee); // Add the current best performer
+        } else if (employee["absentDays"] == minAbsentDays) {
+          goodPerformers.add(employee); // Add to good performers if equal
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5923,6 +6330,15 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan penjualan tercepat (dengan soldInDays terbanyak) di dalam list products
       // Kemudian masukkan data produk tersebut ke dalam list bestProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["soldInDays"] > maxSoldInDays) {
+          maxSoldInDays = product["soldInDays"];
+          bestProducts.clear();
+          bestProducts.add(product);
+        } else if (product["soldInDays"] == maxSoldInDays) {
+          bestProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5941,6 +6357,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan yang bekerja di departemen "HR"
       // Kemudian masukkan nama karyawan tersebut ke dalam list hrEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["department"] == "HR") {
+          hrEmployees.add(employee["name"]); // Add the name of the HR employee
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5959,6 +6380,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan harga lebih dari 200000
       // Kemudian masukkan nama produk tersebut ke dalam list expensiveProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] > 200000) {
+          expensiveProducts.add(product["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5979,6 +6405,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan harga kurang dari 300000
       // Kemudian masukkan nama produk tersebut ke dalam list affordableProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] < 300000) {
+          affordableProducts.add(product["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -5999,6 +6430,12 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan yang bekerja di departemen "HR"
       // Jika ditemukan, simpan nama karyawan tersebut pada variabel hrEmployee
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["department"] == "HR") {
+          hrEmployee = employee["name"];
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6017,6 +6454,12 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan harga lebih dari 300000
       // Jika ditemukan, simpan nama produk tersebut pada variabel expensiveProduct
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] > 300000) {
+          expensiveProduct = product["name"];
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6035,6 +6478,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan yang bekerja di departemen "IT"
       // Kemudian masukkan nama karyawan tersebut ke dalam list itEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["department"] == "IT") {
+          itEmployees.add(employee["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6053,6 +6501,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan harga kurang dari 200000
       // Kemudian masukkan nama produk tersebut ke dalam list affordableProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] < 200000) {
+          affordableProducts.add(product["name"]);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6074,6 +6527,14 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan usia lebih dari 30 tahun atau berjenis kelamin "Female"
       // Jika ditemukan, simpan nama, usia, dan jenis kelaminnya pada variabel yang telah disediakan
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["age"] > 30 || employee["gender"] == "Female") {
+          name = employee["name"];
+          age = employee["age"];
+          gender = employee["gender"];
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6092,6 +6553,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan harga lebih dari 200000 dan terjual kurang dari 60
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] > 200000 && product["quantitySold"] < 60) {
+          matchedProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6110,6 +6576,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan nama mengandung huruf "Do"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["name"].contains("Do")) {
+          matchedEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6129,6 +6600,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan nama mengandung huruf "Sony"
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["name"].contains("Sony")) {
+          matchedProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6148,6 +6624,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan nama depan mengandung huruf "Jo"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["name"].startsWith("Jo")) {
+          matchedEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6167,6 +6648,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari produk dengan nama mengandung huruf "Logi"
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["name"].contains("Logi")) {
+          matchedProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6187,6 +6673,11 @@ class TechnicalTest {
       // ? Instruksi: Gunakan looping for untuk mencari karyawan dengan nama belakang mengandung huruf "son"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["name"].endsWith("son")) {
+          matchedEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6207,6 +6698,12 @@ class TechnicalTest {
       // atau mengandung huruf "Logi"
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["name"].contains("Sony") ||
+            product["name"].contains("Logi")) {
+          matchedProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6226,6 +6723,11 @@ class TechnicalTest {
       // atau mengandung huruf "Sony" dalam nama produk
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] < 200000 || product["name"].contains("Sony")) {
+          matchedProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6245,7 +6747,11 @@ class TechnicalTest {
       // atau nama mengandung huruf "Smith"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
-
+      for (var employee in employees) {
+        if (employee["age"] > 35 || employee["name"].contains("Smith")) {
+          matchedEmployees.add(employee);
+        }
+      }
       // --- End of Answer ---
 
       return matchedEmployees.length == 1 &&
@@ -6265,6 +6771,10 @@ class TechnicalTest {
       // atau nama mengandung huruf "Sony" dalam produk
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] > 300000 || product["name"].contains("Sony"))
+        matchedProducts.add(product);
+        }
 
       // --- End of Answer ---
 
@@ -6285,6 +6795,12 @@ class TechnicalTest {
       // atau nama depan mengandung huruf "Bob"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["age"] >= 25 && employee["age"] <= 30 ||
+        employee["name"].split(" ")[0].contains("Bob"))
+        matchedEmployees.add(employee
+        );
+        }
 
       // --- End of Answer ---
 
@@ -6306,6 +6822,11 @@ class TechnicalTest {
       // dan nama produk mengandung huruf "og"
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] < 200000 && product["name"].contains("og"))
+        matchedProducts.add(product
+        );
+        }
 
       // --- End of Answer ---
 
@@ -6326,6 +6847,12 @@ class TechnicalTest {
       // dan nama belakang mengandung huruf "son"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["age"] < 30 && employee["name"].split(" ").last.contains
+        ("son"))
+        matchedEmployees.add(employee
+        );
+        }
 
       // --- End of Answer ---
 
@@ -6346,6 +6873,11 @@ class TechnicalTest {
       // dan nama mengandung huruf "Smith"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["age"] > 35 && employee["name"].contains("Smith")) {
+          matchedEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6365,6 +6897,11 @@ class TechnicalTest {
       // dan nama mengandung huruf "Sony" dalam produk
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] > 300000 && product["name"].contains("Sony")) {
+          matchedProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6385,6 +6922,12 @@ class TechnicalTest {
       // dan nama depan mengandung huruf "Bob"
       // Kemudian masukkan data karyawan tersebut ke dalam list matchedEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if ((employee["age"] >= 25 && employee["age"] <= 30) &&
+            employee["name"].startsWith("Bob")) {
+          matchedEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6405,6 +6948,11 @@ class TechnicalTest {
       // dan nama produk mengandung huruf "og"
       // Kemudian masukkan data produk tersebut ke dalam list matchedProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["price"] < 200000 && product["name"].contains("og")) {
+          matchedProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6424,6 +6972,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari order dengan id 3 dalam list orders
       // >>> Tulis kode for loop di sini
+      for (var i = 0; i < orders.length; i++) {
+        if (orders[i]["id"] == 3) {
+          index = i;
+          break;
+          }
+          }
 
       // --- End of Answer ---
 
@@ -6442,6 +6996,13 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari employee dengan name "Eva" dan salary lebih dari 6000 dalam list employees
       // >>> Tulis kode for loop di sini
+      for (var i = 0; i < employees.length; i++) {
+        if (employees[i]["name"] == "Eva" && employees[i]["salary"] >
+        6000) {
+          index = i;
+          break;
+          }
+          }
 
       // --- End of Answer ---
       return index == 3;
@@ -6460,6 +7021,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari transaction dengan id 5 dan type "Purchase" dalam list transactions
       // >>> Tulis kode for loop di sini
+      for (var i = 0; i < transactions.length; i++) {
+        if (transactions[i]["id"] == 5 && transactions[i]["type"] == "Purchase") {
+          index = i;
+          break;
+          }
+          }
 
       // --- End of Answer ---
 
@@ -6478,11 +7045,10 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari product dengan id 2 dan price 1200 dalam list products
       // >>> Tulis kode for loop di sini
-      for (var i = 0; i < products.length; i++) {
-        if (products[i]['id'] == 2 &&
-            products[i]['price'] == 120 &&
-            products[i]['price'] == 1200) {
+      for (int i = 0; i < products.length; i++) {
+        if (products[i]["id"] == 2 && products[i]["price"] == 1200) {
           index = i;
+          break;
         }
       }
       // --- End of Answer ---
@@ -6502,6 +7068,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari employee dengan name "Bob" dan age lebih dari 30 dalam list employees
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < employees.length; i++) {
+        if (employees[i]["name"] == "Bob" && employees[i]["age"] > 30) {
+          index = i;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6521,6 +7093,13 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari transaction dengan type "Refund" dan status "Pending" dalam list transactions
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < transactions.length; i++) {
+        if (transactions[i]["type"] == "Refund" &&
+            transactions[i]["status"] == "Pending") {
+          index = i;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6539,6 +7118,12 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari product dengan name "Headphones" dan stock lebih dari 15 dalam list products
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < products.length; i++) {
+        if (products[i]["name"] == "Headphones" && products[i]["stock"] > 15) {
+          index = i;
+          break;
+        }
+      }
 
       // --- End of Answer ---
       return index == 2;
@@ -6556,6 +7141,14 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari employee dengan name "John", age 30, dan department "Sales" dalam list employees
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < employees.length; i++) {
+        if (employees[i]["name"] == "John" &&
+            employees[i]["age"] == 30 &&
+            employees[i]["department"] == "Sales") {
+          index = i;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6575,6 +7168,13 @@ class TechnicalTest {
 
       // ? Instruksi: Gunakan looping for untuk mencari index dari transaction dengan amount 75 dan status "Completed" dalam list transactions
       // >>> Tulis kode for loop di sini
+      for (int i = 0; i < transactions.length; i++) {
+        if (transactions[i]["amount"] == 75 &&
+            transactions[i]["status"] == "Completed") {
+          index = i;
+          break;
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6639,6 +7239,15 @@ class TechnicalTest {
       // memiliki gender "Female", berusia di atas 25 tahun, dan tinggal di kota "Los Angeles" atau "New York"
       // Masukkan user yang memenuhi kriteria tersebut ke dalam list subscribedUsers
       // >>> Tulis kode for loop di sini
+      for (var user in users) {
+        if (user["isSubscribed"] == true &&
+            user["isVerified"] == true &&
+            user["gender"] == "Female" &&
+            user["age"] > 25 &&
+            (user["city"] == "Los Angeles" || user["city"] == "New York")) {
+          subscribedUsers.add(user);
+        }
+      }
 
       // --- End of Answer ---
       return subscribedUsers.isNotEmpty && subscribedUsers.first["id"] == 4;
@@ -6702,6 +7311,14 @@ class TechnicalTest {
       // memiliki rating di atas 4.5, tersedia (isAvailable = true), dan memiliki lebih dari 100 ulasan (reviews > 100)
       // Masukkan product yang memenuhi kriteria tersebut ke dalam list featuredProducts
       // >>> Tulis kode for loop di sini
+      for (var product in products) {
+        if (product["isFeatured"] == true &&
+            product["rating"] > 4.5 &&
+            product["isAvailable"] == true &&
+            product["reviews"] > 100) {
+          featuredProducts.add(product);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6769,6 +7386,15 @@ class TechnicalTest {
       // dan bekerja di departemen "IT" atau "Finance"
       // Masukkan karyawan yang memenuhi kriteria tersebut ke dalam list highPaidEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["salary"] > 5000 &&
+            employee["age"] > 25 &&
+            employee["yearsOfExperience"] > 3 &&
+            (employee["department"] == "IT" ||
+                employee["department"] == "Finance")) {
+          highPaidEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
@@ -6834,6 +7460,13 @@ class TechnicalTest {
       // dan berusia di bawah 25 tahun (age < 25)
       // Masukkan karyawan yang memenuhi kriteria tersebut ke dalam list partTimeEmployees
       // >>> Tulis kode for loop di sini
+      for (var employee in employees) {
+        if (employee["isFullTime"] == false &&
+            employee["hasHealthInsurance"] == false &&
+            employee["age"] < 25) {
+          partTimeEmployees.add(employee);
+        }
+      }
 
       // --- End of Answer ---
 
